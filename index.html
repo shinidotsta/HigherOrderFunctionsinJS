@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+      //------filter will return the array---
+      var student=['shini','dia','robin'];
+      console.log(student.filter(e => e.length>=5));
+
+      //--------using anonymous function------//
+      let newArray=student.filter(function(e)
+      {
+        return e.length>=3;
+      });
+      //console.log(newArray);
+      //--------callback-----------------//
+      function greaterThanFive(stdElement)
+      {
+        return stdElement.length>=5;
+      }
+      let ClArray=student.filter(greaterThanFive);
+       // console.log(ClArray);
+
+
+
+
+
+//------------Map concept------
+  var studentScore=[
+    {
+     Score1:70
+    },
+    {
+    Score2:100
+    },
+    {
+     Score3:90 
+    }];
+
+    studentScore.map(e=>{
+      console.log(e);
+      for (const prop in e) {   //seprating the key  from the object
+        //console.log(prop);
+        value=e[prop];  // seprating value from the object
+       console.log(prop.slice(prop.length-1,prop.length));
+        
+       console.log(value);
+  
+      }
+      return e;
+    })
+   
+
+//------------spread concept-----
+var arr1=[1,2,3]; 
+var arr2=[3];
+var total=[...arr1,...arr2]; //Spread operator
+
+//console.log(total);
+
+
+//------reduce consept-----
+var marks=[10,20,30];
+var newmarks=marks.reduce((accumulator,value) => accumulator + value);
+console.log(newmarks)
+
+//chaining of higherorder functions
+var division=[
+             {"name":"shini",
+                "section":"A",
+                "score" :"50"
+             },
+             {"name":"Dia",
+                "section":"A",
+                "score" :"60"
+             },
+             {"name":"Robin",
+                "section":"B",
+                "score" :"50"
+             }];
+             
+          var newSections=division.filter(division=>division.section==="A");
+          console.log(newSections);
+          var newName=division.map(division=>division.name);
+          console.log(newName);
+          console.log(division.reduce((accumulator,division) => accumulator + division.score,0));
+                
+             
+
+    </script>
+</body>
+</html>
